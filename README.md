@@ -40,5 +40,6 @@ If this needed to support 10,000 shipments and multiple concurrent users, the bi
 - Backend: https://shipmenttracker-production.up.railway.app/health
 
 ## Reference
-[1] How To Deploy GitHub Project on Railway: https://www.youtube.com/watch?v=xi4C42VD0ko \n
+[1] How To Deploy GitHub Project on Railway: https://www.youtube.com/watch?v=xi4C42VD0ko
+
 [2] Added @frontend\src\vite-env.d.ts after understanding its requirements for deployement from: https://medium.com/@bharath0292/how-to-properly-handle-environment-variables-in-vite-with-typescript-7e1cbf4c2cc9
