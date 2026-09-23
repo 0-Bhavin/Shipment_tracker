@@ -41,4 +41,7 @@ If this needed to support 10,000 shipments and multiple concurrent users, the bi
 
 ## Reference
 [1] How To Deploy GitHub Project on Railway: https://www.youtube.com/watch?v=xi4C42VD0ko
+
 [2] Added @frontend\src\vite-env.d.ts after understanding its requirements for deployement from: https://medium.com/@bharath0292/how-to-properly-handle-environment-variables-in-vite-with-typescript-7e1cbf4c2cc9
+
+[3] Postgres in a Docker Container: https://www.youtube.com/watch?v=Hs9Fh1fr5s8
