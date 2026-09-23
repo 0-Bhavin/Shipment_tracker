@@ -27,16 +27,18 @@ See the build guide for full steps. Summary:
 
 ## Scaling to 10,000 Shipments / Concurrent Users
 If this needed to support 10,000 shipments and multiple concurrent users, the biggest changes would be: 
-(1) add pagination and server-side sorting to the shipment list instead of returning every row — `LIMIT`/`OFFSET` or keyset pagination on `created_at`; 
-(2) move from a single shared `Pool` with default settings to a tuned connection pool (and possibly PgBouncer) to handle concurrent writes safely; 
-(3) add optimistic locking or a `version` column on `shipments` so two concurrent status updates can't silently overwrite each other; (
-4) introduce request validation (e.g. `zod`) and rate limiting now that more than one person is hitting the API; 
+(1) add pagination and server-side sorting to the shipment list instead of returning every row — `LIMIT`/`OFFSET` or keyset pagination on `created_at`.
+(2) move from a single shared `Pool` with default settings to a tuned connection pool (and possibly PgBouncer) to handle concurrent writes safely.
+(3) add optimistic locking or a `version` column on `shipments` so two concurrent status updates can't silently overwrite each other.
+4) introduce request validation (e.g. `zod`) and rate limiting now that more than one person is hitting the API.
 (5) add basic auth/authorization, since "who changed what" starts to matter once it's multi-user.
 (6) consider caching the list endpoint (e.g. short-lived Redis cache) if search/filter becomes a hot path. None of this needs to be built now — the current schema (normalized shipment + history tables, indexed on status and reference number) is the same one I would scale, not one I would throw away.
 
 ## Live Links
 
 - Frontend: (https://shipment-tracker-neon.vercel.app/)
-- Backend: shipmenttracker-production.up.railway.app
+- Backend: https://shipmenttracker-production.up.railway.app/health
 
 ## Reference
+[1] How To Deploy GitHub Project on Railway: https://www.youtube.com/watch?v=xi4C42VD0ko
+[2] Added @frontend\src\vite-env.d.ts after understanding its requirements for deployement from: https://medium.com/@bharath0292/how-to-properly-handle-environment-variables-in-vite-with-typescript-7e1cbf4c2cc9

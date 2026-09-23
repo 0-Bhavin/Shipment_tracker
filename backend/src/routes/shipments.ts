@@ -4,7 +4,7 @@ import { isValidStatus, STATUSES } from "../types";
 
 const router = Router();
 
-// GET /api/shipments?status=&search=
+// GET /api/shipments status and search
 router.get("/", async (req: Request, res: Response) => {
   const { status, search } = req.query;
 
